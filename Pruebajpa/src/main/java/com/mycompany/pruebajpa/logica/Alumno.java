@@ -1,6 +1,7 @@
 
 package com.mycompany.pruebajpa.logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import javax.persistence.TemporalType;
  * @author Daniel
  */
 @Entity
-public class Alumno {
+public class Alumno implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id; 
@@ -25,9 +26,9 @@ public class Alumno {
     
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento; 
-
-    public Alumno(int edad, String nombre, String apellido, Date fechaNacimiento) {
-        this.id = edad;
+    
+    public Alumno(int id, String nombre, String apellido, Date fechaNacimiento) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
@@ -36,12 +37,12 @@ public class Alumno {
     public Alumno() {
     }
 
-    public int getEdad() {
+    public int getId() {
         return id;
     }
 
-    public void setEdad(int edad) {
-        this.id = edad;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -67,6 +68,6 @@ public class Alumno {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-    
+
     
 }
