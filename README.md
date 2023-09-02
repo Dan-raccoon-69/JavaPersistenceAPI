@@ -1,0 +1,1 @@
+## Apuntes sobre JPA (Java Persistence API). 
